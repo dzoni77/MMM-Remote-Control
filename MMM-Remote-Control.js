@@ -131,14 +131,14 @@ Module.register("MMM-Remote-Control", {
             if (payload.force) { options.force = true; }
             let modules = []
             if(payload.module !== 'all') {
-                let i = MM.getModules().find(m => {
+                let i = MM.getModules().filter(m => {
                     return (payload.module.includes(m.identifier));
                 });
-                if (!i) {
+                if (!i[0]) {
                     modules = MM.getModules().filter(m => {
                         return (payload.module.includes(m.name));
                     });
-                } else modules.push(i)
+                } else modules = i
             } else {
                 modules = MM.getModules()
             }
