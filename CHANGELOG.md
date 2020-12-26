@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.3.1] - Unreleased
+
+### Fixed
+- `Find` it's not defined inside some Electron instances (#242 and #235)
+
 ## [2.3.0] - 2020-12-23
 
 ### Added
