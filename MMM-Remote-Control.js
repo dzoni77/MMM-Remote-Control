@@ -137,12 +137,14 @@ Module.register("MMM-Remote-Control", {
                     Object.defineProperty(Array.prototype,"find",{value:function(r){if(null===this)throw new TypeError("Array.prototype.find called on null or undefined");if("function"!=typeof r)throw new TypeError("callback must be a function");for(var e=Object(this),n=e.length>>>0,t=arguments[1],o=0;o<n;o++){var f=e[o];if(r.call(f,o,e,t))return f}}});
                 }
                 let i = MM.getModules().find(m => {
+                    if(m===undefined) continue;
                     console.log('find: '+m.identifier)
                     return (payload.module.includes(m.identifier));
                 });
                 console.log(MM.getModules())
                 if (!i) {
                     modules = MM.getModules().filter(m => {
+                        if(m===undefined) continue;
                         return (payload.module.includes(m.name));
                     });
                 } else modules.push(i)
@@ -151,6 +153,7 @@ Module.register("MMM-Remote-Control", {
             }
             if (!modules.length) { return; }
             modules.forEach((mod) => {
+                if(mod===undefined) continue;
                 if (notification === "HIDE" ||
                     (notification === "TOGGLE" && !mod.hidden)) {
                     mod.hide(1000, options);
