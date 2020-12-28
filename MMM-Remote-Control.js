@@ -140,6 +140,7 @@ Module.register("MMM-Remote-Control", {
                     console.log('find: '+m.identifier)
                     return (payload.module.includes(m.identifier));
                 });
+                console.log(MM.getModules())
                 if (!i) {
                     modules = MM.getModules().filter(m => {
                         return (payload.module.includes(m.name));
